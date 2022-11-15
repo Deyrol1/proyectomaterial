@@ -1,0 +1,72 @@
+
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Completa la informacion personal</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="nombre" placeholder="Nombre completo" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Completa informacion adicional">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput  [(ngModel)]="email" formControlName="secondCtrl" placeholder="Ejemplo: miau@gmail.com"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Atras</button>
+        <button mat-raised-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="Contraseña">
+    <form [formGroup]="thirdFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="thirdCtrl"  [(ngModel)]="password" required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Atras</button>
+        <button mat-raised-button matStepperNext (click)="subir()">Finalizar</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Registro completo</ng-template>
+    <p>Registro completado</p>
+    <div>
+      <button mat-raised-button (click)="regresar()">Finalizar</button>
+
+    </div>
+  </mat-step>
+
+</mat-stepper>
+
+
+
+<h2>Lista de usuarios</h2>
+
+<table class="table table-bordered" >
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Contraseña</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let nav of dataSource">
+      <td>{{ nav.name }}</td>
+      <td>{{ nav.email }}</td>
+      <td>{{ nav.contrasena }}</td>
+    </tr>
+
+  </tbody>
+</table>
