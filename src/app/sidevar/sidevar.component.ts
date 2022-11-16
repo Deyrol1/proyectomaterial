@@ -22,19 +22,6 @@ export class SidevarComponent implements OnInit {
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
 
-  public Menus: Menu[]=[{name:"inicio", route: "inicio", icon: "home"},
-  {name:"Sobre nosotros", route: "Acerca", icon: "quiz"},
-  {name:"Registro", route: "registro", icon: "person"}
-  ];
-  //("inicio", "inicio", "home")
- //("Sobre nosotros", "Acerca", "quiz")
-
-
-
-
-
-
-
 
 
 
@@ -42,8 +29,10 @@ export class SidevarComponent implements OnInit {
 
   fillerNav = [
     {name:"inicio", route: "inicio", icon: "home"},
-    {name:"Registro", route: "registro", icon: "add_circle"},
-    {name:"Listado", route: "listado", icon: "person"},
+    {name:"Registro Usuario", route: "registro", icon: "add_circle"},
+    {name:"Listado usuarios(incompleto)", route: "listado", icon: "person"},
+    {name:"Nueva tarea", route: "registromateria", icon: "add_circle"},
+    {name:"Listado tareas(incompleto)", route: "listado", icon: "book"},
 
   ]
 

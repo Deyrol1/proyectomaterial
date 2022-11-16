@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../class/usuario/usuario';
-
+import swal from'sweetalert2';
 
 
 export interface PeriodicElement {
@@ -31,6 +31,28 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class ListadoComponent implements OnInit {
 
+
+
+  prueba(){
+    swal.fire({
+      title: 'Seguro?',
+      text: "No podras deshacerlo",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borralo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swal.fire(
+          'Borrado!',
+          'Usuario eliminado',
+          'success'
+        )
+      }
+    })
+  }
 
   usuario?:Usuario;
 

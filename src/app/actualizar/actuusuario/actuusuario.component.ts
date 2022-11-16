@@ -5,12 +5,11 @@ import {StepperOrientation} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
-import { Usuario } from '../class/usuario/usuario';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {MatStepper} from '@angular/material/stepper';
 import { MatTable } from '@angular/material/table';
+import { Usuario } from 'src/app/class/usuario/usuario';
 
-import swal from'sweetalert2';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,52 +17,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.sass']
-
+  templateUrl: './actuusuario.component.html',
+  styleUrls: ['./actuusuario.component.sass']
 })
-
-
-
-
-
-
-
-
-
-
-export class RegistroComponent implements OnInit {
+export class ActuusuarioComponent implements OnInit {
   @ViewChild('stepper',{read:MatStepper}) stepper?:MatStepper;
-
-
-
-
-  prueba(){
-    swal.fire({
-      title: 'Seguro?',
-      text: "No podras deshacerlo",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borralo!',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        swal.fire(
-          'Borrado!',
-          'Usuario eliminado',
-          'success'
-        )
-      }
-    })
-  }
-
-
-
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
@@ -83,19 +42,17 @@ export class RegistroComponent implements OnInit {
 
 
 
+  usuario?:Usuario;
 
-    emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
-    matcher = new MyErrorStateMatcher();
-
+  Listausuarios: Usuario[]=[];
 
 
-    usuario?:Usuario;
-
-    Listausuarios: Usuario[]=[];
-    nombre:string='';
+  nombre:string='';
     email:string='';
     password:string='';
+
+
+
     subir(){
 
 
@@ -126,41 +83,20 @@ export class RegistroComponent implements OnInit {
 
 
 
-    regresar(){
-      this.stepper?.reset();
-    }
 
 
 
 
 
-    displayedColumns = [ 'nombre', 'email', 'contrasena'];
-    dataSource = this.Listausuarios;
+  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver) {
 
-
-
-
-
-
-  constructor(private _formBuilder: FormBuilder, breakpointObserver: BreakpointObserver, public titulo:Title) {
     this.stepperOrientation = breakpointObserver
-      .observe('(min-width: 800px)')
-      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
-      titulo.setTitle('Registro');
-
-
-
-
-
-
-
+    .observe('(min-width: 800px)')
+    .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
+
 
   ngOnInit(): void {
-
   }
+
 }
-
-
-
-const Usuario_DATA: Usuario[] = [];

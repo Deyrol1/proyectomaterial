@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,11 +15,20 @@ import { InicioComponent } from './inicio/inicio.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatStepperModule} from '@angular/material/stepper';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ListadoComponent } from './listado/listado.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
+import { ActuusuarioComponent } from './actualizar/actuusuario/actuusuario.component';
+import { EliminarusuarioComponent } from './eliminar/eliminarusuario/eliminarusuario.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { RegistrotareaComponent } from './registrotarea/registrotarea.component';
+
+
+
+
+
 
 
 
@@ -30,6 +40,13 @@ import {MatDividerModule} from '@angular/material/divider';
     RegistroComponent,
     InicioComponent,
     ListadoComponent,
+    ActuusuarioComponent,
+    EliminarusuarioComponent,
+    RegistrotareaComponent,
+
+
+
+
 
 
 
@@ -50,7 +67,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    SweetAlert2Module,
+
 
 
 

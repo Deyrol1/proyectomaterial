@@ -1,4 +1,3 @@
-
 <mat-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
@@ -42,41 +41,10 @@
     <ng-template matStepLabel>Registro completo</ng-template>
     <p>Registro completado</p>
     <div>
-      <button mat-raised-button (click)="regresar()">Finalizar</button>
+      <button mat-raised-button><a href="registro">Terminar</a></button>
 
     </div>
   </mat-step>
 
 </mat-stepper>
 
-
-
-<h2>Lista de usuarios</h2>
-
-<table class="table table-bordered" >
-  <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Contraseña</th>
-      <th scope="col">Acciones</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let nav of dataSource">
-      <td>{{ nav.name }}</td>
-      <td>{{ nav.email }}</td>
-      <td>{{ nav.contrasena }}</td>
-      <td>
-        <button mat-raised-button color="primary" ><a href="actualizar">Actualizar</a></button>
-        <button mat-raised-button color="warn" (click)="prueba()">Eliminar</button>
-
-
-
-
-      </td>
-    </tr>
-
-  </tbody>
-</table>
