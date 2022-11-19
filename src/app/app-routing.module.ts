@@ -6,6 +6,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ListadoComponent } from './listado/listado.component';
 import { ActuusuarioComponent } from './actualizar/actuusuario/actuusuario.component';
 import { RegistrotareaComponent } from './registrotarea/registrotarea.component';
+import { ListadotareasComponent } from './listadotareas/listadotareas.component';
 
 const routes: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'inicio' },
   {
@@ -25,7 +26,11 @@ const routes: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'inicio' },
 },
 {path:'registromateria',
 component:  RegistrotareaComponent,
+},
+{path:'listadotarea',
+component:  ListadotareasComponent,
 }
+
 
 
 ];

@@ -1,7 +1,8 @@
 import { Menu } from '../class/menu/menu';
-import { Component, OnInit,ChangeDetectorRef,OnDestroy } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef,OnDestroy, ViewChild } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
+import {MatSidenav} from '@angular/material/sidenav';
 
 
 
@@ -13,28 +14,34 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./sidevar.component.sass']
 })
 export class SidevarComponent implements OnInit {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
 
   value = 'Clear me';
 
 
+
+
+
   mobileQuery: MediaQueryList;
-
-  //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
-
-
-
-
 
 
 
   fillerNav = [
     {name:"inicio", route: "inicio", icon: "home"},
-    {name:"Registro Usuario", route: "registro", icon: "add_circle"},
-    {name:"Listado usuarios(incompleto)", route: "listado", icon: "person"},
-    {name:"Nueva tarea", route: "registromateria", icon: "add_circle"},
-    {name:"Listado tareas(incompleto)", route: "listado", icon: "book"},
-
+    {name:"Usuarios", icon: "person",
+      submenu:[
+        {name:"registrar usuario", route: "registro", icon:"add-circle"},
+        {name:"lista usuarios", route: "listado", icon:"person"},
+      ]},
+    {name:"Tareas",icon: "book",
+      submenu:[
+        {name:"Nueva tarea", route: "registromateria", icon:"add-circle"},
+        {name:"lista tareas", route: "listadotarea", icon:"book"},
+      ]}
   ]
+
+
+
 
 
   seccion= '';
@@ -52,6 +59,9 @@ export class SidevarComponent implements OnInit {
 
   }
 
+  opened= true;
+
+  panelOpenState = false;
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
@@ -59,6 +69,8 @@ export class SidevarComponent implements OnInit {
   shouldRun = true;
 
   ngOnInit(): void {
+
+
   }
 
 }

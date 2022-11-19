@@ -1,0 +1,30 @@
+
+<h2>Lista de usuarios</h2>
+
+<table class="table table-bordered" >
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">categoria</th>
+      <th scope="col">descripcion</th>
+      <th scope="col">Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let nav of dataSource">
+      <td>{{ nav.id }}</td>
+      <td>{{ nav.categoria }}</td>
+      <td>{{ nav.descripcion }}</td>
+      <td>
+        <button mat-raised-button color="primary" ><a href="registromateria">Actualizar</a></button>
+        <button mat-raised-button color="warn" (click)="prueba()">Eliminar</button>
+
+
+
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

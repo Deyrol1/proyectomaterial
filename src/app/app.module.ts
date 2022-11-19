@@ -24,6 +24,10 @@ import { ActuusuarioComponent } from './actualizar/actuusuario/actuusuario.compo
 import { EliminarusuarioComponent } from './eliminar/eliminarusuario/eliminarusuario.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { RegistrotareaComponent } from './registrotarea/registrotarea.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ListadotareasComponent } from './listadotareas/listadotareas.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 
@@ -43,6 +47,7 @@ import { RegistrotareaComponent } from './registrotarea/registrotarea.component'
     ActuusuarioComponent,
     EliminarusuarioComponent,
     RegistrotareaComponent,
+    ListadotareasComponent,
 
 
 
@@ -69,6 +74,8 @@ import { RegistrotareaComponent } from './registrotarea/registrotarea.component'
     MatTableModule,
     MatDividerModule,
     SweetAlert2Module,
+    MatSelectModule,
+    MatExpansionModule,
 
 
 
